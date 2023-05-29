@@ -83,6 +83,15 @@ def calculate_cointegration(series_1, series_2):
 
 
 def store_cointegration_results(df_market_prices):
+    """
+    Tests for cointegration between pairs of time series in `df_market_prices` and stores the results in a CSV file.
+
+    Parameters:
+    df_market_prices (DataFrame): A dataframe where each column represents a time series to be tested for cointegration.
+
+    Returns:
+    str: A string indicating that the operation was successful.
+    """
     # Initialize
     markets = df_market_prices.columns.to_list()
     criteria_met_pairs = []
