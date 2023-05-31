@@ -5,6 +5,8 @@ import time
 from pprint import pprint
 
 # Get open positions
+
+
 def is_open_positions(client, market):
 
     # Protect API
@@ -23,9 +25,14 @@ def is_open_positions(client, market):
         return False
 
 # Check order status
+
+
 def check_order_status(client, order_id):
     order = client.private.get_order_by_id(order_id)
-    return order.data["order"]["status"]
+    if order.data:
+        if "order" in order.data.keys():
+            return order.data["order"]["status"]
+    return "FAILED"
 
 
 # Place market orders
@@ -60,6 +67,8 @@ def place_market_order(client, market, side, size, price, reduce_only):
     return placed_order.data
 
 # Abort all open positions
+
+
 def abort_all_positions(client):
 
     # Cancel orders
@@ -108,12 +117,12 @@ def abort_all_positions(client):
                 accept_price,
                 True
             )
-            
-			# Append results
+
+            # Append results
             close_orders.append(order)
-            
-			# Protect API
+
+            # Protect API
             time.sleep(0.2)
-        
-		# Return close orders
+
+            # Return close orders
         return close_orders

@@ -5,13 +5,13 @@ from decouple import config
 MODE = "DEVELOPMENT"
 
 # Close All Positions
-ABORT_ALL_POSITIONS = False
+ABORT_ALL_POSITIONS = True
 
 # Find cointegrated Pairs
 FIND_COINTEGRATED = False
 
 # Place Trades
-PLACE_TRADES = True
+PLACE_TRADES = False
 
 # Resolution
 RESOLUTION = "1HOUR"
