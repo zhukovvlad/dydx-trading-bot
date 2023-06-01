@@ -8,6 +8,16 @@ from pprint import pprint
 
 
 def is_open_positions(client, market):
+    """
+    Function to check if there are any open positions for a given market.
+
+    Parameters:
+    client: The trading client instance.
+    market: String representing the market to check.
+
+    Returns:
+    bool: True if there are open positions, False otherwise.
+    """
 
     # Protect API
     time.sleep(0.2)
@@ -28,7 +38,20 @@ def is_open_positions(client, market):
 
 
 def check_order_status(client, order_id):
+    """
+    Function to check the status of an order.
+
+    Parameters:
+    client: The trading client instance.
+    order_id: The id of the order to check.
+
+    Returns:
+    str: The status of the order, or "FAILED" if the order doesn't exist.
+    """
+    # Retrieve the order by its id
     order = client.private.get_order_by_id(order_id)
+
+    # Return the order's status if the order exists, otherwise return "FAILED"
     if order.data:
         if "order" in order.data.keys():
             return order.data["order"]["status"]
