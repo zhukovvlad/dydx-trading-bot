@@ -5,15 +5,15 @@ from decouple import config
 MODE = "DEVELOPMENT"
 
 # Close All Positions
-ABORT_ALL_POSITIONS = True
+ABORT_ALL_POSITIONS = False
 
 # Find cointegrated Pairs
 FIND_COINTEGRATED = False
 
-MANAGE_EXITS = True
+MANAGE_EXITS = False
 
 # Place Trades
-PLACE_TRADES = True
+PLACE_TRADES = False
 
 # Resolution
 RESOLUTION = "1HOUR"
