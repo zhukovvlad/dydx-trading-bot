@@ -27,11 +27,11 @@ def manage_trade_exits(client):
     except:
         return "complete"
 
-        # Guard: Exit if no open position in file
+    # Guard: Exit if no open position in file
     if len(open_positions_dict) < 1:
         return "complete"
 
-        # Get all open positions
+    # Get all open positions
     exchange_pos = client.private.get_positions(status="OPEN")
     all_exc_positions = exchange_pos.data["positions"]
     markets_live = [x["market"] for x in all_exc_positions]

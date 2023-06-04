@@ -1,1 +1,1 @@
-[]
+[{"market_1": "XTZ-USD", "market_2": "BTC-USD", "hedge_ratio": 3.325050770351958e-05, "z_score": 1.8898582947919462, "half_life": 8.0, "order_id_m1": "63ef87fe4bd69607b7fa2fb5ab436f6ed4acb3b6899a3016623caf38a6fbc26", "order_m1_size": "108", "order_m1_side": "SELL", "order_time_m1": "2023-06-05T00:25:55.637995", "order_id_m2": "3aaceb096c3700b3b7d054d47679419d17ff010fb299c5773622c1ac54db5d4", "order_m2_size": "0.0037", "order_m2_side": "BUY", "order_time_m2": "2023-06-05T00:26:14.961635", "pair_status": "LIVE", "comments": ""}]
