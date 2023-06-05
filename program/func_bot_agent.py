@@ -1,6 +1,7 @@
 from func_private import place_market_order, check_order_status
 from datetime import datetime, timedelta
 import time
+from func_messaging import send_message
 
 from pprint import pprint
 
@@ -209,7 +210,8 @@ class BotAgent:
                     print("UNEXPECTED ERROR")
                     print(order_status_close_order)
 
-                    # !!! COSIDER SENDING MESSAGE HERE!!!
+                    # Send message
+                    send_message(f"Failed to execute. Code red. Error code: 100")
 
                     # ABORT
                     exit(1)
@@ -221,7 +223,8 @@ class BotAgent:
                 print("UNEXPECTED ERROR")
                 print(order_status_close_order)
 
-                # !!! COSIDER SENDING MESSAGE HERE!!!
+                # Send message
+                send_message(f"Failed to execute. Code red. Error code: 101")
 
                 # ABORT
                 exit(1)

@@ -9,11 +9,15 @@ from func_messaging import send_message
 
 if __name__ == "__main__":
 
+    # Message from start
+    send_message("Here we go again! Bot launch successful...")
+
     try:
         print("Connecting to client...")
         client = connect_dydx()
     except Exception as e:
         print("Error connecting to client: ", e)
+        send_message(f"Failed to connect to client")
         exit(1)
 
     # Abort all positions
@@ -23,6 +27,7 @@ if __name__ == "__main__":
             close_orders = abort_all_positions(client)
         except Exception as e:
             print("Error closing positions: ", e)
+            send_message(f"Error closing all positions")
             exit(1)
 
     # Find cointegrated pairs
