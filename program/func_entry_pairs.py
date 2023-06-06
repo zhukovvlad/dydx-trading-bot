@@ -4,6 +4,7 @@ from func_public import get_candles_recent
 from func_cointegration import calculate_zscore
 from func_private import is_open_positions
 from func_bot_agent import BotAgent
+from func_paths import get_file_path
 import pandas as pd
 import json
 
@@ -19,7 +20,7 @@ def open_positions(client):
     """
 
     # Load cointegrated pairs
-    df = pd.read_csv("cointegrated_pairs.csv")
+    df = pd.read_csv(get_file_path("cointegrated_pairs.csv"))
 
     # Get markets for referencing of min order size, ticks etc
     markets = client.public.get_markets().data
@@ -28,7 +29,7 @@ def open_positions(client):
     bot_agents = []
     # Opening JSON file
     try:
-        open_positions_file = open("bot_agents.json")
+        open_positions_file = open(get_file_path("bot_agents.json"))
         open_positions_dict = json.load(open_positions_file)
 
         for p in open_positions_dict:
@@ -152,5 +153,5 @@ def open_positions(client):
     # Save agents
     print(f"Success: Manage open trades checked")
     if len(bot_agents) > 0:
-        with open("bot_agents.json", "w") as f:
+        with open(get_file_path("bot_agents.json"), "w") as f:
             json.dump(bot_agents, f)

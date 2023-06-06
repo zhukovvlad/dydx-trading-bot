@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import statsmodels.api as sm
+from func_paths import get_file_path
 from statsmodels.tsa.stattools import coint
 from constants import MAX_HALF_LIFE, WINDOW
 
@@ -121,7 +122,7 @@ def store_cointegration_results(df_market_prices):
 
     # Create and save DataFrame
     df_criteria_met = pd.DataFrame(criteria_met_pairs)
-    df_criteria_met.to_csv("cointegrated_pairs.csv")
+    df_criteria_met.to_csv(get_file_path("cointegrated_pairs.csv"))
 
     # Return Result
     print("Cointegrated pairs successfully saved")

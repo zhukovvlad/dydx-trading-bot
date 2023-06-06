@@ -3,6 +3,7 @@ from func_utils import format_number
 from func_public import get_candles_recent
 from func_cointegration import calculate_zscore
 from func_private import place_market_order
+from func_paths import get_file_path
 import json
 import time
 
@@ -22,7 +23,7 @@ def manage_trade_exits(client):
 
     # Opening JSON file
     try:
-        open_positions_file = open("bot_agents.json")
+        open_positions_file = open(get_file_path("bot_agents.json"))
         open_positions_dict = json.load(open_positions_file)
     except:
         return "complete"
@@ -193,5 +194,5 @@ def manage_trade_exits(client):
 
     # Save remaining items
     print(f"{len(save_output)} Items remaining. Saving file...")
-    with open("bot_agents.json", "w") as f:
+    with open(get_file_path("bot_agents.json"), "w") as f:
         json.dump(save_output, f)

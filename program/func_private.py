@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 from func_utils import format_number
+from func_paths import get_file_path
 import time
 import json
 
@@ -148,7 +149,7 @@ def abort_all_positions(client):
 
         # Override json file with empty list
         bot_agents = []
-        with open("bot_agents.json", "w") as f:
+        with open(get_file_path("bot_agents.json"), "w") as f:
             json.dump(bot_agents, f)
 
         # Return close orders
